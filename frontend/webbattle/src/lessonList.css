@@ -1,0 +1,26 @@
+body {
+    background-color: #272727;
+    
+}
+
+.container {
+    max-width: 80%;
+    margin: auto;
+    border: 1px solid red;
+    color: white;
+}
+
+
+
+/* --body: #181818;
+    --text: #fff;
+    --text-secondary: #a9a9a9;
+    --text-alt: #bebebe;
+    --content: #1e1e1e;
+    --bg-alt: #212121;
+    --sidebar: #272727;
+    --border: #434343;
+    --green: #00e472;
+    --green-hover: #03d36b;
+    --purple: #ab23ff;
+    --input: #303030; */

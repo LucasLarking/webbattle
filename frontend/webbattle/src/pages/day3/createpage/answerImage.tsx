@@ -16,13 +16,13 @@ const RenderAnswerImg = ({ AnswerImgData }: Props) => {
 
     const setAnswerImgData = async () => {
         const node = document.querySelectorAll<HTMLElement>(`.AnswerImage`)[0];
-        if (!node) return;
+        if (!node || !lesson) return;
         const canvas = await html2canvas(node, { useCORS: true });
         const ctx = canvas.getContext('2d')
-        const imgDataCode = ctx?.getImageData(0, 0, 100, 100).data
-        console.log('doing asnwer imag')
+        const imgDataCode = ctx?.getImageData(0, 0, lesson.image_set[0].width, lesson.image_set[0].height).data
+
         if (imgDataCode) {
-            console.log('there is an answer image')
+
             setData(true)
             AnswerImgData(imgDataCode);}
     }

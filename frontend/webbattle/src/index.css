@@ -1,13 +1,23 @@
 @import 'codemirror/lib/codemirror.css';
 @import 'codemirror/theme/material.css';
+
+/* #181818 darkgrey */
+/* #96ec96 green */
+/* #212121 */
+* {
+    box-sizing: border-box;
+    /* background-color: #434343;
+    background-color: #303030;
+    background-color: #272727; */
+    font-family: 'Poppins', sans-serif;
+}
+
 #capture {
     border: 1px solid black;
     height: 200px;
 }
 
-body {
-    background-color: aqua;
-}
+
 /* iframe {
     background-color: red;
 } */
@@ -36,3 +46,16 @@ img {
     position: absolute;
     top: -200%;
 }
+
+/* --body: #181818;
+    --text: #fff;
+    --text-secondary: #a9a9a9;
+    --text-alt: #bebebe;
+    --content: #1e1e1e;
+    --bg-alt: #212121;
+    --sidebar: #272727;
+    --border: #434343;
+    --green: #00e472;
+    --green-hover: #03d36b;
+    --purple: #ab23ff;
+    --input: #303030; */

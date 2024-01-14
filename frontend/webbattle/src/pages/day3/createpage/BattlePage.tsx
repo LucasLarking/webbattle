@@ -25,7 +25,6 @@ const BattlePage = () => {
 
   
   useEffect(() => {
-    console.log('user data updated', answerImageData)
     if (userImgData && answerImageData) {
       
       let differentPixels = 0;
@@ -49,7 +48,6 @@ const BattlePage = () => {
     }, [userImgData])
     
     const handleSetAnswerData = (newData: Uint8ClampedArray) => {
-      console.log('set answer dats')
       setAnswerImgData(newData);
     };
     
@@ -58,29 +56,24 @@ const BattlePage = () => {
     
     const codeToImage = async () => {
       // Get written code and turn into image data
-      console.log('Code to image')
+
       const node = document.querySelectorAll<HTMLElement>(`#output`)[0];
-      if (!node) return;
+      if (!node || !lesson) return;
       const canvas = await html2canvas(node, { useCORS: true });
       const ctx = canvas.getContext('2d')
       await new Promise(resolve => setTimeout(resolve, 1000));
-      const imgData = ctx?.getImageData(0, 0, 100, 100).data
+      const imgData = ctx?.getImageData(0, 0, lesson.image_set[0].width, lesson.image_set[0].height).data
       
       if (imgData) {
         setUserImgData(imgData)
-        console.log('imag data')
-      } else {
-        console.log('no img data')
       }
-      
       
       
     }
     
     if (lessonLoading) return (<p>lesson loading</p>)
     if (lessonError) return (<p>lesson Error</p>)
-    if (lesson) {
-      console.log(lesson, lesson.image_set[0])}
+
 
   return (
     <>
