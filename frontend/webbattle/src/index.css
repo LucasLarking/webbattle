@@ -1,0 +1,38 @@
+@import 'codemirror/lib/codemirror.css';
+@import 'codemirror/theme/material.css';
+#capture {
+    border: 1px solid black;
+    height: 200px;
+}
+
+body {
+    background-color: aqua;
+}
+/* iframe {
+    background-color: red;
+} */
+
+canvas {
+    border: 1px solid green;
+    /* padding: 30px; */
+}
+
+img {
+    margin: 10px;
+
+}
+
+.flex {
+    display: flex;
+
+}
+
+.CodeMirror {
+    width: 1000px;
+}
+
+
+ #output {
+    position: absolute;
+    top: -200%;
+}
