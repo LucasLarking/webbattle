@@ -1,13 +1,11 @@
 from rest_framework import serializers
-from .models import Image, Lesson
+from .models import Chapter, Image, Lesson
 
 
 
 
 
 class ImageSerializer(serializers.ModelSerializer):
-
-
 
     class Meta:
         model = Image
@@ -20,3 +18,9 @@ class LessonSerializer(serializers.ModelSerializer):
     class Meta:
         model = Lesson
         fields = ['name', 'id', 'image_set']
+
+class ChapterSerializer(serializers.ModelSerializer):
+    # lesson_set = LessonSerializer(many=True, read_only=True)
+    class Meta:
+        model = Chapter
+        fields = ['chapter_name', 'id']

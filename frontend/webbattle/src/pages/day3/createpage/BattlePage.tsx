@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import CodeEditor from '../CodeEditor'
 import html2canvas from 'html2canvas'
 import RenderAnswerImg from './answerImage'
-import useGetLesson from '../../../hooks/useGetLession'
+import useGetLesson from '../../../hooks/useGetLesson'
 import { useParams } from 'react-router-dom'
 
 
@@ -17,8 +17,8 @@ import { useParams } from 'react-router-dom'
 const BattlePage = () => {
 
   const { slug } = useParams();
-  const lesson_id = parseInt(slug!)
-  const { data: lesson, isLoading: lessonLoading, error: lessonError } = useGetLesson(lesson_id)
+
+  const { data: lesson, isLoading: lessonLoading, error: lessonError } = useGetLesson(slug!)
   const [code, setCode] = useState('')
   const [answerImageData, setAnswerImgData] = useState<Uint8ClampedArray | null>(null);
   const [userImgData, setUserImgData] = useState<Uint8ClampedArray | null>(null);
@@ -74,7 +74,7 @@ const BattlePage = () => {
     if (lessonLoading) return (<p>lesson loading</p>)
     if (lessonError) return (<p>lesson Error</p>)
 
-
+    console.log(lesson, 'LESSON')
   return (
     <>
       <h1>{lesson?.name}</h1>

@@ -6,14 +6,15 @@ export interface Image {
 
 export interface Lesson_small
  {
-    id: number;
+    id: string;
     name: string;
 }
 
 export interface Lesson_big {
-    id: number;
+    id: string;
     name: string;
     image_set: Image[];
 }
 
 export const CAHCE_KEY_LESSON = ['Lesson']
+export const CAHCE_KEY_LESSONS = ['Lessons']

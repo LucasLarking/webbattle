@@ -12,7 +12,10 @@ interface Props {
 const RenderAnswerImg = ({ AnswerImgData }: Props) => {
     const [data, setData] = useState<boolean>(false)
     const queryClient = useQueryClient();
-    const {data: lesson, isLoading: lessonLoading, error: lessonError} = useQuery(CAHCE_KEY_LESSON, () => queryClient.getQueryData<Lesson_big>(CAHCE_KEY_LESSON))
+    // const {data: lesson, isLoading: lessonLoading, error: lessonError} = useQuery(CAHCE_KEY_LESSON, () => queryClient.getQueryData<Lesson_big>(CAHCE_KEY_LESSON))
+
+    
+    const lesson = queryClient.getQueryData<Lesson_big>(CAHCE_KEY_LESSON)
 
     const setAnswerImgData = async () => {
         const node = document.querySelectorAll<HTMLElement>(`.AnswerImage`)[0];
@@ -32,8 +35,10 @@ const RenderAnswerImg = ({ AnswerImgData }: Props) => {
 
     }, [])
 
-    if (lessonLoading) return (<p>loading</p>)
-    if (lessonError) return (<p>lessonError</p>)
+    if (!lesson) return (<p>loading</p>)
+    if (!lesson.image_set) return (<p>loading</p>)
+    if (!lesson.image_set[0]) return (<p>loading</p>)
+    // if (lessonError) return (<p>lessonError</p>)
 
     return (
         <>
@@ -42,7 +47,8 @@ const RenderAnswerImg = ({ AnswerImgData }: Props) => {
 
 
             <p>Answer:</p>
-            <img className='AnswerImage' src={lesson?.image_set[0].image} /></>
+            {lesson.image_set[0].image && (<img className='AnswerImage' src={lesson?.image_set[0].image} />)}
+            </>
     )
 }
 

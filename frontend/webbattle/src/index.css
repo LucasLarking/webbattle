@@ -1,16 +1,20 @@
 @import 'codemirror/lib/codemirror.css';
 @import 'codemirror/theme/material.css';
-
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 /* #181818 darkgrey */
 /* #96ec96 green */
 /* #212121 */
 * {
     box-sizing: border-box;
-    /* background-color: #434343;
+/*     
     background-color: #303030;
     background-color: #272727; */
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif !important;
 }
+
+/* 
 
 #capture {
     border: 1px solid black;
@@ -18,14 +22,10 @@
 }
 
 
-/* iframe {
-    background-color: red;
-} */
-
 canvas {
     border: 1px solid green;
-    /* padding: 30px; */
-}
+
+ }
 
 img {
     margin: 10px;
@@ -45,7 +45,7 @@ img {
  #output {
     position: absolute;
     top: -200%;
-}
+} */
 
 /* --body: #181818;
     --text: #fff;

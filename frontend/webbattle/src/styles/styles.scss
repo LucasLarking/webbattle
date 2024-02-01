@@ -2,20 +2,49 @@
 
 html body {
     background-color: #272727;
-
+    color: white;
+    margin: 0;
+    padding: 0;
 }
 
-.container {
+.listSection {
     max-width: 80%;
     margin: auto;
-    border: 1px solid red;
+    // border: 1px solid red;
     color: white;
 
     h1 {
         font-size: 3rem;
     }
-}
 
+    
+
+    .chapterContainer {
+    background-color: #1e1e1e;
+    padding: 20px;
+    margin: 5px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 4px;
+    cursor: pointer;
+
+    h3 {
+        margin: 0;
+        font-size: 1.2rem;
+    }
+
+     span {
+        opacity: .2;
+        font-size: .8rem;
+     }
+
+     a {
+        color: white;
+        text-decoration: none;
+        text-transform: capitalize;
+     }
+    }
+}
 
 
 /* --body: #181818;

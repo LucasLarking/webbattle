@@ -1,7 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "./pages/Layout";
-import LessonList from "./pages/lessonlist/LessonList";
+import ChapterList from "./pages/lessonlist/ChapterList";
 import BattlePage from "./pages/day3/createpage/BattlePage";
+import Test from "./Test";
 
 
 const router = createBrowserRouter([
@@ -9,8 +10,9 @@ const router = createBrowserRouter([
         path: '/',
         element: <Layout />,
         children: [
-            {index: true, element: <LessonList />},
+            {index: true, element: <ChapterList />},
             {path: ':slug', element: <BattlePage />},
+            {path: 'test', element: <Test />},
         ]
 
     }

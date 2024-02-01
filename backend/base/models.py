@@ -1,6 +1,8 @@
 from django.db import models
+import uuid
 
 class Chapter(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     chapter_name = models.CharField(max_length=255)
 
     def __str__(self) -> str:
@@ -8,6 +10,7 @@ class Chapter(models.Model):
 
 
 class Lesson(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     chapter = models.ForeignKey(Chapter, on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
 

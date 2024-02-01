@@ -1,13 +1,13 @@
 from django.shortcuts import render
-
+from rest_framework.decorators import action
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status, permissions
 from rest_framework.viewsets import GenericViewSet, ModelViewSet
 
-from base.serializers import ImageSerializer, LessonSerializer
+from base.serializers import ChapterSerializer, ImageSerializer, LessonSerializer
 
-from .models import Image, Lesson
+from .models import Chapter, Image, Lesson
 from .forms import ImageForm
 import base64
 from io import BytesIO
@@ -16,20 +16,22 @@ from io import BytesIO
 def hello(request):
     return render(request, 'hello.html')
 
-# class ImageViewSet(APIView):
-#     print('wasuop')
-#     def get(self, request):
-#         print('get stuff')
-#         image_data = Image.objects.all()
-#         serializer = ImageSerializer(image_data, many=True)
-#         return Response(serializer.data)
-#     def post(self, request):
-#         serializer = ImageSerializer(data=request.data)
-#         if serializer.is_valid():
-#             serializer.save()
-#             return Response(serializer.data, status=status.HTTP_201_CREATED)
-#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+class ChapterViewset(ModelViewSet):
 
+    http_method_names = ['option', 'head', 'get']
+    queryset = Chapter.objects.all()
+    serializer_class = ChapterSerializer
+
+    @action(detail=True, methods=['get'])
+    def lessons(self, request, pk=None):
+        chapter = self.get_object()
+        ojb = Chapter.objects.get(id=pk)
+        print(ojb)
+        lessons = Lesson.objects.filter(chapter=ojb)
+        print(request.data, pk)
+        serializer = LessonSerializer(lessons, many=True)
+        print(serializer.data)
+        return Response(serializer.data)
 
 class ImageViewSet(ModelViewSet):
     print('return image')

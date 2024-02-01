@@ -1,5 +1,5 @@
 import axios from "axios";
-import { CAHCE_KEY_LESSON, Lesson_big } from "../lesson/Lesson";
+import { CAHCE_KEY_LESSONS, Lesson_big } from "../lesson/Lesson";
 import { useQuery } from '@tanstack/react-query';
 
 const useGetLessons = () => {
@@ -7,7 +7,7 @@ const useGetLessons = () => {
         .then((res) => res.data)
 
     return useQuery<Lesson_big[], Error>({
-        queryKey: CAHCE_KEY_LESSON,
+        queryKey: CAHCE_KEY_LESSONS,
         queryFn: fetchLessons
     })
 
